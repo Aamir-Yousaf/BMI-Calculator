@@ -1,0 +1,50 @@
+const weight = document.querySelector(".weight");
+const units = document.querySelector(".units");
+const feet = document.querySelector(".feet");
+const inches = document.querySelector(".inches");
+const result = document.querySelector(".result");
+const errorMessage = document.querySelector(".error-message");
+
+function calculateBMI() {
+  // Check if any input field is empty
+  if (!weight.value || !feet.value || !inches.value) {
+    errorMessage.textContent = "Please enter all required data.";
+    return; 
+  } else {
+    errorMessage.textContent = ""; // Clear error message if all inputs are filled
+  }
+
+  let convertedWeight = weight.value;
+  if (units.value === "LB"){
+    convertedWeight = weight.value * 0.453592;
+  }
+
+  // Weight conversion
+  const totalHeight = feet.value * 0.3048 + inches.value * 0.0254;
+  const BMI = (convertedWeight / totalHeight**2).toFixed(2);
+
+  // Weight conditions
+  result.textContent = BMI;
+
+  // Clear previous classes
+  result.classList.remove("underweight", "normal", "overweight", "obese");
+
+  if (BMI < 18.5) {
+    result.textContent = `Your BMI is ${BMI} and you are "Underweight"`;
+    result.classList.add("underweight");
+  }
+  else if (BMI >= 18.5 && BMI <= 24.9) {
+    result.textContent = `Your BMI is ${BMI} and you are "Normal"`;
+    result.classList.add("normal");
+  }
+  else if(BMI >= 25.0 && BMI <= 39.9) {
+    result.textContent = `Your BMI is ${BMI} and you are "Overweight"`;
+    result.classList.add("overweight");
+  }
+  else {
+    result.textContent = `Your BMI is ${BMI} and you are "Obese"`;
+    result.classList.add("obese");
+  }
+}
+
+calculateBMI();

@@ -1,0 +1,27 @@
+.underweight{
+  background-color: #FFE189;
+  margin-top:12px ;
+  color: #ffffff;
+}
+.normal{
+  background-color: #8CD47E;
+  margin-top:12px ;
+  color: #ffffff;
+}
+.overweight{
+  background-color: #FFB54C;
+  margin-top:12px ;
+  color: #ffffff;
+}
+.obese{
+  background-color: #FF6961;
+  margin-top:12px ;
+  color: #ffffff;
+}
+.error-message{
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 10px;
+  background-color: red;
+  font-size: 25px;
+}
